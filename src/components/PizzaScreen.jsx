@@ -14,10 +14,13 @@ export function PizzaScreen({ molho, tipos, borda }) {
   switch (borda) {
     case 'borda':
       bordaTipo = 'Pizzaa-01';
+      break;
     case 'tradicional':
       bordaTipo = 'Pizzaa-02';
+      break;
     case 'fina':
       bordaTipo = 'Pizzaa-03';
+      break;
   }
 
   const bordaUrl = `https://studio.code.org/v3/assets/1M0wVT7H--jMKxjDJMc3ZQZGs7pYH3KRZNxtxFT3m3U/${bordaTipo}.png?t=1670932317000`

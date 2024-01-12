@@ -1,12 +1,9 @@
 import { useState } from "react";
 
 import "./App.css";
-import { Header } from "./components/Header";
-import { ImgClient } from "./components/ImgClient";
-import { OpcoesMassa } from "./components/OpcoesMassa";
-import { OpcoesMolho } from "./components/OpcoesMolho";
-import { OpcoesTipo } from "./components/OpcoesTipo";
+
 import { PizzaScreen } from "./components/PizzaScreen";
+import { MakerScreen } from "./components/MakerScreen";
 
 const initState = { 
   borda: "fina", 
@@ -21,7 +18,7 @@ function App() {
   return (
     <>
       { isMakerVisible ? 
-       <MakerScreen submit={() => setIsMakerVisible(false)} /> :
+        <MakerScreen onChange={_setState} submit={() => setIsMakerVisible(false)} /> :
         <PizzaScreen molho={state.molho} borda={state.borda} tipos={state.tipo} />
       }
       {
@@ -30,24 +27,3 @@ function App() {
     </>
   );
 }
-
-export default App;
-
-function MakerScreen({submit}: {submit: () => void}) {
-  return <div id="screenMaker">
-    <Header />
-
-    <div className="row">
-      <OpcoesMassa />
-      <OpcoesMolho />
-    </div>
-    <div className="row">
-      <OpcoesTipo />
-      <ImgClient />
-    </div>
-    <footer>
-      <button onClick={submit}> ➡️ </button>
-    </footer>
-  </div>;
-}
-
